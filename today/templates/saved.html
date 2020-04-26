@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+   <title>Hello, world!</title>
+   
+</head>
+<body>
+    {% include 'sidebar.html' %}
+          
+    <div class="jumbotron jumbotron-fluid colorscheme">
+        <div class="container-fluid p-3 text-white">
+
+            <div class="row">
+                <div class="col"></div>
+                <div class="col"><div className="new-country">
+             <div className="col-md-12">
+               <textarea class="form-control" id="newCountry"
+                 placeholder="Save new country"
+               /></textarea>
+             </div>
+             <br>
+             <div id="saveform">
+               <a href="#"
+               >
+                 Submit
+             </a>
+     
+           </div>
+           <br>
+           <br>
+                    <div id="output"></div>
+             </div></div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
+     <script>
+ document.getElementById("saveform").addEventListener("click", function () {
+saveCountries();
+});
+  function saveCountries() {
+  var countrytext = "" + document.getElementById('newCountry').value;
+  const usersession = new blockstack.UserSession();
+  usersession.getFile('countries.json', {decrypt:false}).then((file) => {
+  var countries = JSON.parse(file || '[]');
+  let country = {text: countrytext.trim()};
+  countries.unshift(country);
+  usersession.putFile('countries.json', JSON.stringify(countries), {encrypt: false}).then((yes) => {getCountries();}
+  )
+
+ })}
+
+function getCountries() {
+   var countries;
+     const usersession = new blockstack.UserSession();
+     countries = usersession.getFile('countries.json', {decrypt:false})
+     .then((file) => {
+      // console.log(file);
+        var countries = JSON.parse(file || '[]');
+        var output = document.getElementById("output");
+        if (countries.length > 0)
+        output.innerHTML = "<h4>Your Countries: </h4>";
+for(var i=0; i < countries.length; i++)
+{
+  var country = countries[i]['text'];
+  output.innerHTML += "<p><a href='/country/" + country + "'>" + country + "</a></p>";
+}
+      })
+ }
+ getCountries();
+ </script>
+{% endblock %}

@@ -1,0 +1,156 @@
+.colorscheme {
+  background: #232524;
+  color: #000;
+}
+
+.jumbotron {
+  margin-top: 0;
+  margin-bottom: 0;
+  min-height: 80%;
+  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh;
+  /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+  height: 80%;
+  text-align: center;
+  -webkit-text-size-adjust: 100%;
+}
+
+#back {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: #ffffff;
+}
+
+.vertical-center {
+  min-height: 100%;
+  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh;
+  /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+  background: #232524;
+  color: #000;
+  font-weight: 300;
+  height: 100%;
+  text-align: center;
+  -webkit-text-size-adjust: 100%;
+}
+
+.jumbotron {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.select-box {
+  display: flex;
+  margin-left: 35%;
+  margin-right: 35%;
+  flex-direction: column;
+}
+
+.select-box .options-container {
+  background: #2f3640;
+  color: #f5f6fa;
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.4s;
+  border-radius: 8px;
+  overflow: hidden;
+
+  order: 1;
+}
+
+.selected {
+  background: #2f3640;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  color: #f5f6fa;
+  position: relative;
+
+  order: 0;
+}
+
+.selected::after {
+  content: "";
+
+  position: absolute;
+  height: 100%;
+  width: 32px;
+  right: 10px;
+  top: 5px;
+
+  transition: all 0.4s;
+}
+
+.select-box .options-container.active {
+  max-height: 240px;
+  opacity: 1;
+  overflow-y: scroll;
+}
+
+.select-box .options-container.active + .selected::after {
+  transform: rotateX(180deg);
+  top: -6px;
+}
+
+.select-box .options-container::-webkit-scrollbar {
+  width: 8px;
+  background: #0d141f;
+  border-radius: 0 8px 8px 0;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb {
+  background: #525861;
+  border-radius: 0 8px 8px 0;
+}
+
+.select-box .option,
+.selected {
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+.select-box .option:hover {
+  background: #414b57;
+}
+
+.select-box label {
+  cursor: pointer;
+}
+
+.select-box .option .radio {
+  display: none;
+}
+
+.wrapper {
+  display: block;
+}
+
+#saveform a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+  background: #2f3640;
+  color: #f5f6fa;
+  text-decoration: none;
+  transition: all 0.3s;
+  border-radius: 8px;
+}
+
+#saveform a:hover {
+  color: #181a19 !important;
+  background: #f5f6fa !important;
+}
+a {
+  color: inherit !important ;
+}
+a:hover {
+  text-decoration: none !important;
+}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+            <title>Hello, world!</title>
+   
+</head>
+<body>
+    {% include 'sidebar.html' %}
+    <div class="jumbotron jumbotron-fluid colorscheme">
+        <div class="container-fluid p-3 text-white">
+
+            <div class="row">
+                <div class="col">
+                    <h3>How many Covid-19 cases are there in {{ country }}?
+                    </h3>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col">There are currently {{ confirmed }} confirmed cases. <br>
+                    {{ critical }} of these are critical. <br>
+                    {{ deaths }} people have died. <br>
+                    {{ recovered }} people have recovered.</div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+

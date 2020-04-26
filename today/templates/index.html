@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+            <title>Hello, world!</title>
+</head>
+<body>
+  {% include 'sidebar.html' %}
+    <div class="jumbotron jumbotron-fluid vertical-center colorscheme">
+         
+        <div class="container-fluid p-3 text-white">
+            <div class="row">
+                <div class="col">
+                    <h3>How many Covid-19 cases are there in
+                    </h3>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="select-box">
+                        <div class="options-container" id="options">
+                            {% for country in countries %}
+                            <div class="option">
+                                <input type="radio" class="radio" id="dropdown" />
+                                <label for="dropdown" value='{{ country.1 }}'>{{ country.0 }}</label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="selected" id='selected'>country</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="like_button_container"><button id="signin-button">Test</button></div>
+    <script src="{% static "dropdown.js" %}"></script>
+    
+   
+{% endblock %}

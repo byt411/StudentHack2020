@@ -1,0 +1,57 @@
+{% load static %}
+<link rel="stylesheet" href="{% static "sidebar.css" %}"></link>
+<div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div id="dismiss">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+
+            <ul class="list-unstyled components">
+                <p>Covid-19 Cases</p>
+            
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <div id="saved"</div>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                            <p id = "signed"></p>
+            <p id="username"></p>
+            </li>
+                <li>
+                    <a class="login" id="signin-button">Login</a>
+                </li>
+            </ul>
+        </nav>
+
+           <nav class="navbar navbar-default colorscheme">
+  <div class="container-fluid colorscheme">
+<div id="sidebaricon">
+                <i class="fas fa-bars"></i>
+</div>
+  </div>
+</nav>
+<script>if (blockstack.isUserSignedIn()) {
+  const profile = blockstack.loadUserData();
+  var person = new blockstack.Person(profile);
+  var username = person.profile().username;
+  document.getElementById("signed").innerHTML = "Signed in as:";
+  document.getElementById("username").innerHTML = username;
+  document.getElementById("signin-button").innerHTML = "Logout";
+  document.getElementById("saved").innerHTML="<a href='/saved'>Saved</a>"
+}
+else if (blockstack.isSignInPending()) {
+    blockstack.handlePendingSignIn().then((userData) => {
+        window.location = window.location.origin;
+      });
+    }
+</script>

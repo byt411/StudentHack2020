@@ -1,0 +1,22 @@
+{
+  "name": "covidcases",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byt411/CovidCases.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/byt411/CovidCases/issues"
+  },
+  "homepage": "https://github.com/byt411/CovidCases#readme",
+  "dependencies": {
+    "blockstack": "^21.0.0"
+  }
+}
